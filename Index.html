@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zylzzx Store - Top Up Game</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+header {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffcc00;
+    margin-bottom: 5px;
+}
+
+header span {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.section-title {
+    margin: 20px 0 10px;
+    font-size: 20px;
+}
+
+.games {
+    display: flex;
+    gap: 15px;
+}
+
+.games button {
+    flex: 1;
+    background: #1c1c1c;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.games button:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+.form-box {
+    margin-top: 20px;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.form-box input,
+.form-box select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+}
+
+.form-box button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    background: #000;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Zylzzx Store</h1>
+    <p>Top Up Game Terpercaya</p>
+    <span>📞 601161432261</span>
+</header>
+
+<div class="container">
+
+    <div class="section-title">Pilih Game</div>
+    <div class="games">
+        <button onclick="selectGame('Free Fire')">🔥 Free Fire</button>
+        <button onclick="selectGame('Mobile Legends')">⚔️ Mobile Legends</button>
+    </div>
+
+    <div class="form-box">
+        <div class="section-title">Form Top Up</div>
+
+        <input type="text" id="game" placeholder="Game" readonly>
+        <input type="text" id="userid" placeholder="User ID / Server">
+        
+        <select id="nominal">
+            <option value="">Pilih Nominal</option>
+            <option value="86 Diamond">86 Diamond</option>
+            <option value="172 Diamond">172 Diamond</option>
+            <option value="257 Diamond">257 Diamond</option>
+            <option value="344 Diamond">344 Diamond</option>
+        </select>
+
+        <button onclick="kirimWA()">Order via WhatsApp</button>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Zylzzx Store
+</footer>
+
+<script>
+function selectGame(namaGame) {
+    document.getElementById("game").value = namaGame;
+}
+
+function kirimWA() {
+    let game = document.getElementById("game").value;
+    let userid = document.getElementById("userid").value;
+    let nominal = document.getElementById("nominal").value;
+
+    if (game === "" || userid === "" || nominal === "") {
+        alert("Lengkapi data terlebih dahulu!");
+        return;
+    }
+
+    let pesan = 
+`Halo Zylzzx Store,
+Saya ingin Top Up Game:
+
+Game: ${game}
+User ID: ${userid}
+Nominal: ${nominal}`;
+
+    let url = "https://wa.me/601161432261?text=" + encodeURIComponent(pesan);
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html> 
