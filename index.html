@@ -1,202 +1,313 @@
-<!-- force rebuild -->
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zylzzx Store | Free Fire Top Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zylzzx Store | Professional Graphic Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00e0;
+            --neon-purple: #9d00ff;
+            --dark-bg: #050505;
+            --card-bg: #111;
+        }
 
-<style>
-:root{
-  --main:#ffb703;
-  --dark:#0b0b0b;
-  --card:#161616;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-*{
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
-}
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-body{
-  margin:0;
-  background:linear-gradient(180deg,#000,#111);
-  color:#fff;
-}
+        /* Effect Lampu Warna-Warni Bergerak di Border */
+        @keyframes borderRotate {
+            0% { border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
+            33% { border-color: var(--neon-pink); box-shadow: 0 0 20px var(--neon-pink); }
+            66% { border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple); }
+            100% { border-color: var(--neon-blue); box-shadow: 0 0 20px var(--neon-blue); }
+        }
 
-header{
-  background:#000;
-  padding:15px;
-  text-align:center;
-  border-bottom:2px solid var(--main);
-}
+        /* --- Banner Section --- */
+        .banner {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--neon-blue);
+            animation: borderRotate 5s infinite;
+        }
 
-header img{
-  width:80px;
-}
+        .banner-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #00f3ff, #ff00e0, #9d00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.5));
+        }
 
-header h1{
-  margin:10px 0 5px;
-  color:var(--main);
-}
+        .banner-content p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #ccc;
+            font-weight: 300;
+        }
 
-header p{
-  margin:0;
-  font-size:14px;
-  opacity:.8;
-}
+        /* --- Services Grid --- */
+        .container {
+            max-width: 1200px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-.container{
-  padding:20px;
-  max-width:900px;
-  margin:auto;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
 
-.card{
-  background:var(--card);
-  border-radius:12px;
-  padding:15px;
-  margin-bottom:15px;
-  border:1px solid #222;
-}
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            border: 2px solid #222;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.card h2{
-  margin-top:0;
-  color:var(--main);
-  font-size:18px;
-}
+        /* Effect Hover Card - Lampu Neon */
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+        }
 
-.list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-}
+        .card i {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.item{
-  background:#0f0f0f;
-  padding:12px;
-  border-radius:10px;
-  text-align:center;
-  border:1px solid #222;
-}
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
 
-.item b{
-  color:var(--main);
-}
+        .card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
 
-.btn{
-  display:block;
-  margin-top:8px;
-  padding:10px;
-  background:var(--main);
-  color:#000;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-}
+        /* --- Tagline/Copywriting Section --- */
+        .about-store {
+            text-align: center;
+            margin-top: 100px;
+            padding: 0 20px;
+        }
 
-.btn:hover{
-  opacity:.9;
-}
+        .about-store h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            margin-bottom: 20px;
+        }
 
-.footer{
-  text-align:center;
-  padding:20px;
-  font-size:13px;
-  opacity:.7;
-}
-</style>
+        .about-store p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* --- FAQ Section --- */
+        .faq-container {
+            max-width: 900px;
+            margin: 100px auto;
+            background: #0c0c0c;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-item h4 {
+            color: var(--neon-blue);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* --- Buttons --- */
+        .btn-order {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            box-shadow: 0 0 20px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        /* --- Floating WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: #444;
+            border-top: 1px solid #111;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { margin-top: -50px; }
+            .banner { height: 70vh; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <!-- LOGO FREE FIRE (boleh tukar link kalau mahu) -->
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Garena_Free_Fire_logo.svg/512px-Garena_Free_Fire_logo.svg.png">
-  <h1>Zylzzx Store</h1>
-  <p>Top Up Free Fire • Aman • Terpercaya</p>
-</header>
+    <!-- Hero Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <p>DESIGNER PROFESSIONAL</p>
+            <h1>ZYLZZX STORE</h1>
+            <p>"Kualiti Premium, Harga Member-Member"</p>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- Main Services -->
+    <div class="container">
+        <div class="grid">
+            <!-- Service 1 -->
+            <div class="card">
+                <i class="fas fa-id-badge"></i>
+                <h3>Logo Profile</h3>
+                <p>Tingkatkan brand perniagaan atau imej gaming anda dengan logo profile yang unik, gempak dan berkualiti tinggi.</p>
+                <a href="https://wa.me/601161432261?text=Halo%20Zylzzx%20Store!%20Saya%20nak%20order%20Logo%20Profile" class="btn-order">Request Design</a>
+            </div>
 
-<div class="card">
-<h2>💎 List Diamond Free Fire</h2>
+            <!-- Service 2 -->
+            <div class="card">
+                <i class="fas fa-qrcode"></i>
+                <h3>Logo QR Art</h3>
+                <p>Bosan dengan QR yang biasa? Saya designkan QR Code yang ada logo anda dan tema neon supaya pelanggan tertarik nak scan.</p>
+                <a href="https://wa.me/601161432261?text=Halo%20Zylzzx%20Store!%20Saya%20nak%20buat%20Logo%20QR" class="btn-order">Request Design</a>
+            </div>
 
-<div class="list">
+            <!-- Service 3 -->
+            <div class="card" style="border-color: var(--neon-pink);">
+                <i class="fas fa-th-list"></i>
+                <h3>Diamond List Banner</h3>
+                <p>Saya editkan <b>Banner Price List Diamond</b> yang kemas dan profesional untuk store anda. Pilih tema, hantar list, saya siapkan!</p>
+                <a href="https://wa.me/601161432261?text=Halo%20Zylzzx%20Store!%20Saya%20nak%20order%20Custom%20List%20Diamond" class="btn-order">Request Design</a>
+            </div>
+        </div>
 
-<div class="item">
-25 Diamond<br><b>RM1.30</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%2025%20Diamond">Order</a>
-</div>
+        <!-- Copywriting Section -->
+        <div class="about-store">
+            <h2>MENGAPA PILIH KAMI?</h2>
+            <p>Zylzzx Store bukan sekadar kedai design biasa. Kami memahami citarasa komuniti gamers dan peniaga digital. Setiap design dibuat secara manual, teliti, dan mengikut kehendak pelanggan sehingga berpuas hati. Jangan biarkan store anda nampak 'low-budget', jom upgrade ke tahap pro!</p>
+        </div>
 
-<div class="item">
-50 Diamond<br><b>RM2.20</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%2050%20Diamond">Order</a>
-</div>
+        <!-- FAQ Section -->
+        <div class="faq-container">
+            <h2 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 40px; color: var(--neon-blue);">F.A.Q</h2>
+            
+            <div class="faq-item">
+                <h4><i class="fas fa-clock"></i> Berapa lama tempoh siap?</h4>
+                <p>Biasanya mengambil masa 24-48 jam bergantung pada tahap kerumitan design dan jumlah tempahan sedia ada.</p>
+            </div>
 
-<div class="item">
-100 Diamond<br><b>RM4.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%20100%20Diamond">Order</a>
-</div>
+            <div class="faq-item">
+                <h4><i class="fas fa-edit"></i> Boleh buat pembetulan (Revision)?</h4>
+                <p>Boleh! Saya berikan unlimited minor revision sehingga anda puas hati dengan hasil akhir.</p>
+            </div>
 
-<div class="item">
-300 Diamond<br><b>RM11.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%20300%20Diamond">Order</a>
-</div>
+            <div class="faq-item">
+                <h4><i class="fas fa-file-download"></i> Format apa yang saya akan dapat?</h4>
+                <p>Anda akan menerima fail dalam format High-Resolution PNG/JPG yang sangat jelas untuk kegunaan WhatsApp, IG, atau FB.</p>
+            </div>
+        </div>
+    </div>
 
-<div class="item">
-520 Diamond<br><b>RM19.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%20520%20Diamond">Order</a>
-</div>
+    <footer>
+        <p>&copy; 2024 Zylzzx Store Creative Engine. All Rights Reserved. <br> 
+        Segala bentuk pencurian design tanpa kebenaran adalah dilarang.</p>
+    </footer>
 
-<div class="item">
-1060 Diamond<br><b>RM36.50</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%201060%20Diamond">Order</a>
-</div>
-
-<div class="item">
-1580 Diamond<br><b>RM54.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%201580%20Diamond">Order</a>
-</div>
-
-<div class="item">
-2180 Diamond<br><b>RM74.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%202180%20Diamond">Order</a>
-</div>
-
-<div class="item">
-3240 Diamond<br><b>RM106.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%203240%20Diamond">Order</a>
-</div>
-
-<div class="item">
-5600 Diamond<br><b>RM175.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%205600%20Diamond">Order</a>
-</div>
-
-<div class="item">
-11500 Diamond<br><b>RM355.00</b>
-<a class="btn" href="https://wa.me/601161432261?text=Top%20Up%20FF%2011500%20Diamond">Order</a>
-</div>
-
-</div>
-</div>
-
-<div class="card">
-<h2>🔒 Kenapa Pilih Kami?</h2>
-<ul>
-<li>✅ Top Up Aman & Terpercaya</li>
-<li>⚡ Proses Cepat</li>
-<li>📱 Support WhatsApp 24 Jam</li>
-<li>🔐 Tanpa Login Akaun</li>
-</ul>
-</div>
-
-</div>
-
-<div class="footer">
-© 2026 Zylzzx Store • Free Fire Top Up
-</div>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/601161432261?text=Halo%20Zylzzx%20Store!%20Saya%20berminat%20dengan%20servis%20anda." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
